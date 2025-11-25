@@ -1,0 +1,311 @@
+/* Final Project Page Specific Styles */
+
+.project-title-section {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.project-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.project-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.95;
+}
+
+.time-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    backdrop-filter: blur(10px);
+}
+
+.time-icon {
+    font-size: 1.5rem;
+}
+
+/* QR Code Section */
+.qr-section {
+    margin: 3rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.qr-container {
+    text-align: center;
+    padding: 2.5rem;
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--shadow-hover);
+    border: 3px solid var(--primary-color);
+    max-width: 500px;
+    width: 100%;
+}
+
+.qr-container h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.qr-code-large {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    background: white;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+}
+
+.qr-label {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.repo-link {
+    display: inline-block;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: underline;
+    word-break: break-all;
+    font-size: 0.95rem;
+}
+
+.repo-link:hover {
+    color: var(--secondary-color);
+}
+
+/* Project Overview */
+.project-overview {
+    margin: 3rem 0;
+}
+
+.overview-card {
+    background: var(--bg-section);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--primary-color);
+}
+
+.overview-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.overview-card p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.deliverable-box {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 2px solid var(--primary-color);
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+}
+
+.deliverable-box strong {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+
+/* Slides Section */
+.slides-section {
+    margin: 3rem 0;
+}
+
+.slide-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    gap: 2rem;
+    border-left: 5px solid var(--primary-color);
+    transition: var(--transition);
+}
+
+.slide-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateX(5px);
+}
+
+.slide-number {
+    background: var(--primary-color);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.slide-content {
+    flex: 1;
+}
+
+.slide-content h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.slide-details {
+    margin-left: 1.5rem;
+    margin-top: 0.75rem;
+}
+
+.slide-details li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+/* Notes Section */
+.notes-section {
+    margin: 3rem 0;
+}
+
+.notes-card {
+    background: #fff9e6;
+    border-left: 5px solid #ffc107;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.notes-card h3 {
+    color: #d68910;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.emphasis {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/* Modules Section */
+.modules-section {
+    margin: 3rem 0;
+}
+
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.module-card {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.module-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.module-card h4 {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.modules-note {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-top: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .project-title {
+        font-size: 1.8rem;
+    }
+
+    .project-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .qr-code-large {
+        max-width: 250px;
+    }
+
+    .slide-card {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .slide-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.1rem;
+    }
+
+    .modules-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* RTL Support */
+html[dir="rtl"] .slide-card {
+    flex-direction: row-reverse;
+    border-left: none;
+    border-right: 5px solid var(--primary-color);
+}
+
+html[dir="rtl"] .slide-card:hover {
+    transform: translateX(-5px);
+}
+
+html[dir="rtl"] .overview-card {
+    border-left: none;
+    border-right: 5px solid var(--primary-color);
+}
+
+html[dir="rtl"] .notes-card {
+    border-left: none;
+    border-right: 5px solid #ffc107;
+}
+
+
