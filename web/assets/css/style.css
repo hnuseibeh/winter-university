@@ -462,6 +462,21 @@ html[dir="rtl"] .language-switcher {
     transform: translateY(-2px);
 }
 
+.btn-github {
+    background: #24292e;
+    color: white;
+    border: 2px solid #24292e;
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+}
+
+.btn-github:hover {
+    background: #2f363d;
+    border-color: #2f363d;
+    color: white;
+    transform: translateY(-2px);
+}
+
 /* Student Access Section */
 .student-access-section {
     background: var(--bg-section);
@@ -713,6 +728,15 @@ html[dir="rtl"] .tool-link {
         font-size: 0.85rem;
     }
 
+    .qr-code-image {
+        max-width: 300px;
+        min-width: 200px;
+    }
+
+    .qr-code-container {
+        padding: 1.5rem;
+    }
+
     .main-title {
         font-size: 1.8rem;
     }
@@ -826,6 +850,11 @@ a:visited {
     color: var(--primary-color);
     font-weight: 600;
     word-break: break-all;
+    text-decoration: underline;
+}
+
+.repo-url:hover {
+    color: var(--secondary-color);
 }
 
 .repo-url.active-link a {
@@ -835,6 +864,49 @@ a:visited {
 
 .repo-url.active-link a:hover {
     color: var(--secondary-color);
+}
+
+/* QR Code Styles */
+.qr-code-container {
+    margin: 2rem 0;
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg-light);
+    border-radius: 12px;
+    border: 2px dashed var(--border-color);
+    transition: var(--transition);
+}
+
+.qr-code-container:hover {
+    border-color: var(--primary-color);
+    background: white;
+    box-shadow: var(--shadow);
+}
+
+.qr-code-image {
+    width: 100%;
+    max-width: 400px;
+    min-width: 250px;
+    height: auto;
+    display: block;
+    margin: 0 auto 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: white;
+    padding: 1rem;
+    transition: var(--transition);
+}
+
+.qr-code-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.qr-code-label {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-top: 0.5rem;
 }
 
 /* Accessibility Improvements */

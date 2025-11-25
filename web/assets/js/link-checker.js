@@ -1,36 +1,50 @@
-// Link validation and checking
+// Link validation and checking with internal/external fallback
 document.addEventListener('DOMContentLoaded', () => {
-    // Check if links are accessible (for production)
-    const checkLinks = () => {
-        const links = document.querySelectorAll('a[href]');
-        links.forEach(link => {
-            const href = link.getAttribute('href');
-            
-            // Skip external links and anchors
-            if (href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:')) {
-                return;
+    // Check if internal links are accessible
+    const checkInternalLinks = async () => {
+        const internalLinks = [
+            { selector: 'a[href="../reference-dashboard/"]', fallback: 'https://github.com/hnuseibeh/winter-university/tree/main/reference-dashboard' },
+            { selector: 'a[href="../reference-dashboard/README.md"]', fallback: 'https://github.com/hnuseibeh/winter-university/blob/main/reference-dashboard/README.md' },
+            { selector: 'a[href="../reference-examples/"]', fallback: 'https://github.com/hnuseibeh/winter-university/tree/main/reference-examples' },
+            { selector: 'a[href="../reference-examples/README.md"]', fallback: 'https://github.com/hnuseibeh/winter-university/blob/main/reference-examples/README.md' }
+        ];
+
+        for (const linkInfo of internalLinks) {
+            const link = document.querySelector(linkInfo.selector);
+            if (!link) continue;
+
+            try {
+                // Try to fetch the link to see if it exists
+                const response = await fetch(link.getAttribute('href'), { method: 'HEAD' });
+                if (!response.ok) {
+                    // If internal link doesn't work, update to GitHub fallback
+                    link.href = linkInfo.fallback;
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.classList.add('external-link');
+                }
+            } catch (error) {
+                // If fetch fails (CORS, network error, etc.), assume internal link might work
+                // But add a click handler to check on actual click
+                link.addEventListener('click', (e) => {
+                    // Let the browser try the internal link first
+                    // If it fails, user will see 404 and can use GitHub link
+                });
             }
-            
-            // Add click handler to verify link works
-            link.addEventListener('click', (e) => {
-                // For relative paths, let the browser handle it
-                // If it's a broken link, the browser will show 404
-                // We can add visual feedback here if needed
-            });
-        });
+        }
     };
-    
+
     // Check if we're in production (winter.digital-economy.org)
     const isProduction = window.location.hostname === 'winter.digital-economy.org' || 
                         window.location.hostname.includes('digital-economy.org');
     
     if (isProduction) {
-        // In production, we might need to adjust paths
-        // This could be handled server-side or via configuration
-        console.log('Production environment detected');
+        // In production, try to verify internal links
+        checkInternalLinks();
+    } else {
+        // In local development, internal links should work
+        console.log('Local development - using internal links');
     }
-    
-    checkLinks();
 });
 
 // Helper function to update student repo link when available
