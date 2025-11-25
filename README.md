@@ -5,9 +5,20 @@
 
 ---
 
+## 🚀 **NEW STUDENTS: [Click Here to Get Started](GETTING_STARTED.md)** 👈
+
+---
+
 ## 🎯 Welcome Students! / مرحباً بالطلاب!
 
 This repository contains everything you need for **Workshop 3** of the Winter University 2025 program.
+
+**⚡ Quick Setup:**
+
+1. Download this repository
+2. Run: `pip install -r requirements.txt`
+3. Run: `streamlit run wizard.py`
+4. Full instructions: [GETTING_STARTED.md](GETTING_STARTED.md)
 
 ### Workshop Objectives | أهداف الورشة
 
