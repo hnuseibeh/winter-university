@@ -1,0 +1,149 @@
+version: '3.8'
+
+services:
+  # ============================================================================
+  # Nginx Web Server & Reverse Proxy
+  # ============================================================================
+  nginx:
+    image: nginx:alpine
+    container_name: winter-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./web:/usr/share/nginx/html:ro
+      - ./nginx-complete.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    depends_on:
+      - wizard
+      - dashboard
+      - examples
+    restart: unless-stopped
+    networks:
+      - winter-network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # ============================================================================
+  # Interactive Wizard - Main Learning Tool
+  # ============================================================================
+  wizard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: winter-wizard:latest
+    container_name: winter-wizard
+    expose:
+      - "8501"
+    volumes:
+      - ./wizard.py:/app/wizard.py:ro
+      - ./reference-dashboard/data:/app/reference-dashboard/data:ro
+      - ./logs:/app/logs
+    environment:
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_LOGGER_LEVEL=info
+      - STREAMLIT_SERVER_BASE_URL_PATH=/wizard
+      - TZ=UTC
+    restart: unless-stopped
+    networks:
+      - winter-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # ============================================================================
+  # Reference Dashboard - Research-Focused Example
+  # ============================================================================
+  dashboard:
+    build:
+      context: ./reference-dashboard
+      dockerfile: ../Dockerfile
+    image: winter-dashboard:latest
+    container_name: winter-dashboard
+    expose:
+      - "8502"
+    volumes:
+      - ./reference-dashboard:/app/reference-dashboard:ro
+      - ./logs:/app/logs
+    environment:
+      - STREAMLIT_SERVER_PORT=8502
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_LOGGER_LEVEL=info
+      - STREAMLIT_SERVER_BASE_URL_PATH=/dashboard
+      - TZ=UTC
+    working_dir: /app/reference-dashboard
+    command: streamlit run app.py --server.port=8502 --server.address=0.0.0.0
+    restart: unless-stopped
+    networks:
+      - winter-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8502/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # ============================================================================
+  # Reference Examples - Comprehensive Dashboard
+  # ============================================================================
+  examples:
+    build:
+      context: ./reference-examples
+      dockerfile: ../Dockerfile
+    image: winter-examples:latest
+    container_name: winter-examples
+    expose:
+      - "8503"
+    volumes:
+      - ./reference-examples:/app/reference-examples:ro
+      - ./logs:/app/logs
+    environment:
+      - STREAMLIT_SERVER_PORT=8503
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_LOGGER_LEVEL=info
+      - STREAMLIT_SERVER_BASE_URL_PATH=/examples
+      - TZ=UTC
+    working_dir: /app/reference-examples
+    command: streamlit run app.py --server.port=8503 --server.address=0.0.0.0
+    restart: unless-stopped
+    networks:
+      - winter-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8503/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  winter-network:
+    driver: bridge
+
+volumes:
+  logs:
