@@ -477,6 +477,49 @@ html[dir="rtl"] .language-switcher {
     transform: translateY(-2px);
 }
 
+/* Final Project Section */
+.final-project-section {
+    margin: 4rem 0;
+}
+
+.final-project-card {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-hover);
+    text-align: center;
+}
+
+.final-project-card .section-title {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.final-project-card .section-intro {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    line-height: 1.7;
+}
+
+.btn-large {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    background: white;
+    color: var(--primary-color);
+    border: 3px solid white;
+}
+
+.btn-large:hover {
+    background: transparent;
+    color: white;
+    border-color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
 /* Student Access Section */
 .student-access-section {
     background: var(--bg-section);
