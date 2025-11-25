@@ -1,0 +1,25 @@
+year,field,unemployment_rate,graduates_supply_index,jobs_demand_index
+2015,Teacher Training,68.4,100,60
+2016,Teacher Training,66.0,105,62
+2017,Teacher Training,64.5,110,64
+2018,Teacher Training,63.0,115,66
+2019,Teacher Training,61.5,120,68
+2020,Teacher Training,60.0,125,69
+2021,Teacher Training,59.0,130,70
+2022,Teacher Training,58.0,135,71
+2015,Journalism,53.8,100,70
+2016,Journalism,52.0,104,72
+2017,Journalism,50.5,108,74
+2018,Journalism,49.0,112,75
+2019,Journalism,47.5,116,76
+2020,Journalism,46.0,120,77
+2021,Journalism,45.0,124,78
+2022,Journalism,44.0,128,79
+2015,Engineering,25.0,100,90
+2016,Engineering,24.0,103,92
+2017,Engineering,23.5,106,94
+2018,Engineering,23.0,109,95
+2019,Engineering,22.0,112,97
+2020,Engineering,21.5,115,98
+2021,Engineering,21.0,118,99
+2022,Engineering,20.5,121,100

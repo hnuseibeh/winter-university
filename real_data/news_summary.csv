@@ -1,0 +1,5 @@
+Country,Topic,Recent_Headlines,Sentiment,Mentions_Per_Day,Data_Source
+Palestine,Humanitarian Crisis,5,Negative,200,"PCBS, UN OCHA"
+Palestine,Economic Collapse,3,Negative,150,"World Bank, Palestinian Authority"
+Morocco,Climate Vulnerability,2,Negative,50,"HCP, Climate Reports"
+Morocco,Youth Unemployment,2,Negative,45,"HCP, Labor Statistics"

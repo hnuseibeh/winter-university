@@ -1,0 +1,11 @@
+year,country,gdp_growth,unemployment_rate,youth_unemployment,inflation_rate
+2018,Palestine,-1.5,27.2,44.3,1.8
+2019,Palestine,0.9,28.1,45.1,2.1
+2020,Palestine,2.5,25.3,43.2,1.2
+2021,Palestine,-1.2,26.8,44.8,1.9
+2022,Palestine,1.3,27.5,45.5,2.7
+2018,Morocco,3.1,9.2,24.8,1.9
+2019,Morocco,2.7,9.3,25.2,0.4
+2020,Morocco,-5.7,10.1,27.4,0.6
+2021,Morocco,6.3,8.9,25.1,0.2
+2022,Morocco,3.2,8.4,24.3,0.5

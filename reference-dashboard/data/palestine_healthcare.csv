@@ -1,0 +1,7 @@
+Facility_Type,Total,Operational,Partially_Operational,Non_Operational,Region,Date
+Hospitals,27,4,8,15,Gaza,2024-11
+Primary Health Centers,142,89,35,18,Gaza,2024-11
+Private Clinics,300,120,100,80,Gaza,2024-11
+Pharmaceutical Shortages (%),78,22,78,0,Palestine,2024-11
+Fuel Shortages (%),85,15,85,0,Gaza,2024-11
+Medical Supply Shortages (%),92,8,92,0,Palestine,2024-11

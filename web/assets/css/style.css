@@ -1,0 +1,851 @@
+/* ============================================
+   Workshop 3 Webpage - Professional Stylesheet
+   Winter University 2025
+   ============================================ */
+
+/* CSS Variables for Consistent Design */
+:root {
+    --primary-color: #1a5490;
+    --secondary-color: #2c7fb8;
+    --accent-color: #4a90a4;
+    --text-color: #333333;
+    --text-light: #666666;
+    --bg-color: #ffffff;
+    --bg-light: #f8f9fa;
+    --bg-section: #f0f4f8;
+    --border-color: #e0e0e0;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s ease;
+    --max-width: 1200px;
+    --spacing-unit: 1rem;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+/* RTL Support for Arabic */
+html[dir="rtl"] {
+    direction: rtl;
+}
+
+html[dir="rtl"] body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Arabic UI Text', 'Segoe UI Arabic', sans-serif;
+}
+
+/* Language Switcher */
+.language-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 0.5rem;
+    background: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+html[dir="rtl"] .language-switcher {
+    right: auto;
+    left: 20px;
+}
+
+.lang-switcher-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--border-color);
+    background: white;
+    color: var(--text-color);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.lang-switcher-btn:hover {
+    background: var(--bg-light);
+    border-color: var(--primary-color);
+}
+
+.lang-switcher-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Container */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header Styles */
+.header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 2rem 0;
+    box-shadow: var(--shadow);
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logo-section {
+    text-align: center;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    font-weight: 300;
+}
+
+.university-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.logo-item {
+    background: white;
+    padding: 0.75rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.logo-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.logo-img {
+    max-width: 120px;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Main Content */
+.main-content {
+    padding: 3rem 0;
+}
+
+/* Workshop Title Section */
+.workshop-title-section {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.workshop-title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.language-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.lang-badge {
+    background: var(--bg-light);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 2px solid var(--border-color);
+}
+
+/* Workshop Info Section */
+.workshop-info-section {
+    margin-bottom: 4rem;
+}
+
+.info-card {
+    background: var(--bg-section);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-around;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 200px;
+}
+
+.info-label {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-value {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.workshop-description,
+.workshop-objectives {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--primary-color);
+}
+
+.workshop-description h3,
+.workshop-objectives h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.workshop-description p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+.objectives-list {
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+.objectives-list li {
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+.objectives-list li::marker {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Tools Section */
+.tools-section {
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.section-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.tool-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+}
+
+.tool-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px);
+}
+
+.tool-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.tool-header h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.tool-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.tool-content {
+    padding: 2rem;
+}
+
+.tool-description {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.tool-features {
+    margin-bottom: 1.5rem;
+}
+
+.tool-features h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.tool-features ul {
+    margin-left: 1.5rem;
+    list-style-type: disc;
+}
+
+.tool-features li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    color: var(--text-light);
+}
+
+.tool-access {
+    background: var(--bg-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.tool-access h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.code-block {
+    background: #2d2d2d;
+    color: #f8f8f2;
+    padding: 1.5rem;
+    border-radius: 6px;
+    margin: 1rem 0;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.code-block code {
+    color: inherit;
+    background: transparent;
+    padding: 0;
+}
+
+.tool-note {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+.tool-note code {
+    background: var(--bg-light);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+}
+
+.tool-link {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Student Access Section */
+.student-access-section {
+    background: var(--bg-section);
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    margin-bottom: 4rem;
+}
+
+.access-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.access-intro {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.access-steps h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.step-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    gap: 2rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.step-number {
+    background: var(--primary-color);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.3rem;
+}
+
+.step-content p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+.repo-link {
+    margin: 1rem 0;
+}
+
+.repo-url {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+    word-break: break-all;
+}
+
+.repo-url:hover {
+    text-decoration: underline;
+}
+
+.quick-start-list {
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+.quick-start-list li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+.quick-start-list code {
+    background: var(--bg-light);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.repo-structure {
+    margin-top: 1rem;
+}
+
+.repo-structure ul {
+    margin-left: 1.5rem;
+    list-style-type: disc;
+}
+
+.repo-structure li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+.repo-structure ul ul {
+    margin-top: 0.5rem;
+    margin-left: 2rem;
+    list-style-type: circle;
+}
+
+.student-expectations {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.student-expectations h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.student-expectations ul {
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+.student-expectations li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+.note {
+    background: #fff9e6;
+    border-left: 4px solid #ffc107;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+    background: var(--primary-color);
+    color: white;
+    padding: 3rem 0 1.5rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 0.5rem;
+}
+
+.footer-section p {
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+/* RTL Adjustments */
+html[dir="rtl"] .info-card,
+html[dir="rtl"] .step-card,
+html[dir="rtl"] .tool-card {
+    text-align: right;
+}
+
+html[dir="rtl"] .step-card {
+    flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .objectives-list,
+html[dir="rtl"] .quick-start-list,
+html[dir="rtl"] .repo-structure ul {
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] .code-block {
+    direction: ltr;
+    text-align: left;
+}
+
+html[dir="rtl"] .tool-link {
+    flex-direction: row-reverse;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    :root {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .language-switcher {
+        top: 10px;
+        right: 10px;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    html[dir="rtl"] .language-switcher {
+        right: auto;
+        left: 10px;
+    }
+
+    .lang-switcher-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .main-title {
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .workshop-title {
+        font-size: 1.5rem;
+    }
+
+    .logo-img {
+        max-width: 80px;
+        max-height: 60px;
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-card {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .step-card {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .tool-link {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.5rem;
+    }
+
+    .workshop-title {
+        font-size: 1.3rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .university-logos {
+        gap: 1rem;
+    }
+
+    .logo-img {
+        max-width: 60px;
+        max-height: 45px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .header {
+        background: var(--primary-color) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .btn {
+        display: none;
+    }
+
+    .tool-card,
+    .step-card,
+    .workshop-description,
+    .workshop-objectives {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
+
+/* Link Styles */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:visited {
+    color: var(--secondary-color);
+}
+
+.repo-url {
+    color: var(--primary-color);
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.repo-url.active-link a {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.repo-url.active-link a:hover {
+    color: var(--secondary-color);
+}
+
+/* Accessibility Improvements */
+a:focus,
+button:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Smooth Scrolling for Anchor Links */
+html {
+    scroll-padding-top: 2rem;
+}
+
